@@ -1,0 +1,41 @@
+.imageCard {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  background-color: #fff;
+  margin: 10px;
+  max-width: 300px; /* Optional: set a max-width for the cards */
+}
+
+.imageCard:hover {
+  transform: translateY(-5px);
+}
+
+.imageCard img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.imageItem {
+  padding: 10px;
+  text-align: left;
+  background-color: #f9f9f9;
+}
+
+.imageItem p {
+  margin: 5px 0;
+  color: #333;
+}
+
+.imageItem p:first-child {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.imageItem p:last-child {
+  color: #777;
+  font-size: 0.9em;
+}

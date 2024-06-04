@@ -1,0 +1,8 @@
+.imageGallery {
+  list-style: none;
+  padding: 0;
+}
+
+.imageGalleryItem {
+  margin-bottom: 10px;
+}
