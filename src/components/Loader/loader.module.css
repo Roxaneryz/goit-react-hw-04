@@ -1,0 +1,12 @@
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Займає всю висоту вікна */
+  background-color: rgba(255, 255, 255, 0.8); /* Напівпрозоре біле тло */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999; /* Щоб перекрити всі інші елементи */
+}
