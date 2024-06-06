@@ -15,6 +15,7 @@ const SearchBar = ({ onSearch }) => {
     <header>
       <form onSubmit={handleSubmit}>
         <input
+          name = "searchimage"
           type="text"
           autoComplete="off"
           autoFocus
