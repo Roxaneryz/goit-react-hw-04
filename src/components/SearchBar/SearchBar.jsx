@@ -1,5 +1,5 @@
 import css from "./SearchBar.module.css"
-import { FcSearch } from "react-icons/fc";
+import { ImSearch } from "react-icons/im";
 
 import toast, { Toaster } from "react-hot-toast";
 
@@ -14,17 +14,20 @@ const SearchBar = ({ onSearch }) => {
   };
   return (
     <header className={css.search}>
-      <form onSubmit={handleSubmit}>
-        <input className={css.inputSearch}
-          name = "searchimage"
+      <form className={css.searchForm } onSubmit={handleSubmit}>
+        <input
+          className={css.inputSearch}
+          name="searchimage"
           type="text"
           autoComplete="off"
           autoFocus
           placeholder="Search images and photos"
         />
-        <button type="submit"><FcSearch/> Search</button>
+        <button type="submit">
+          <ImSearch /> Search
+        </button>
       </form>
-      <Toaster position="top-center" />
+      <Toaster position="top-center" reverseOrder={false} />
     </header>
   );
 };
