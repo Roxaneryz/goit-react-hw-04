@@ -6,7 +6,7 @@ import ErrorMessage    from "../ErrorMassage/ErrorMessage"
 import ImageModal from "../ImageModal/ImageModal"
 import Loader from "../Loader/Loader"
 import ImageGallery from "../ImageGallery/ImageGallery"
-import LoaderMore from "../LoaderMore/LoaderMore"
+import LoaderMore from "../LoadMoreBtn/LoaderMore"
 import SearchBar from "../SearchBar/SearchBar"
 
 
