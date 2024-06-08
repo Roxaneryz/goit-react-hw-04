@@ -1,8 +1,25 @@
 .imageGallery {
   list-style: none;
-  padding: 0;
+
+   display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding: 16px;
+  margin-top: 70px;
 }
 
 .imageGalleryItem {
   margin-bottom: 10px;
+  
+}
+
+
+.imageCard  {
+   width: 100px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  object-fit: cover;
 }

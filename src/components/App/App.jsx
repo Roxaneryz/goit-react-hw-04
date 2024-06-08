@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react"
+import { useState,  useEffect } from "react"
 // import css from "./App.css"
 
 import getImages from "../unsplash-api"
@@ -13,14 +13,14 @@ import SearchBar from "../SearchBar/SearchBar"
 const App = () => {
 
     const [images, setImages] = useState([]);
-    const [page, setPage] = useState(false);
+    const [page, setPage] = useState(1);
     const [error, setError] = useState(null);
     const [isLoader, setIsLoader] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [searchImg, setSearchImg] = useState("");
     const [selectedImg, setSelectedImg] = useState(null);
 
-    const loaderMoreBtnRef = useRef(null);
+    // const loaderMoreBtnRef = useRef(null);
 
 
 
@@ -29,8 +29,8 @@ const App = () => {
         setIsLoader(true);
         getImages(searchImg, page)
 
-            .then((newImages) => {
-                setImages((prevImages) => [...prevImages, ...newImages]);
+            .then(({ results }) => {
+                setImages((prevImages) => [...prevImages, ...results]);
                 setIsLoader(false);
             }).catch((error) => {
                 setError(error.message);
@@ -64,21 +64,28 @@ const App = () => {
 
 
   return (
-      <div>
-          
-          <h1>Image Search App</h1>
-          <SearchBar onSearch={handleSearch} />
-          {error && <ErrorMessage massage={error} />}
-          <ImageGallery images={images} onImageClick={handleImgClick}/>
-          {isLoader && <Loader />}
-          {images.length > 0 && !isLoader && (
-              <LoaderMore onLoaderMore={handleLoaderMore} ref={loaderMoreBtnRef} />
-              
-          )}
-          {showModal && (<ImageModal image={selectedImg} onClose={closeModal} />
-        )}
+    <div>
+      <h1>Image Search App</h1>
+      <SearchBar onSearch={handleSearch} />
+      {error && <ErrorMessage massage={error} />}
+      <ImageGallery images={images} onImageClick={handleImgClick} />
+      {isLoader && <Loader />}
+      {images.length > 0 && !isLoader && (
+        <LoaderMore onClick={handleLoaderMore} />
+        //   ref={loaderMoreBtnRef}
+      )}
+      {showModal && (
+        <ImageModal
+          isOpen={showModal}
+          image={selectedImg}
+          onClose={closeModal}
+          description={selectedImg.alt_description}
+          likes={selectedImg.likes}
+          author={selectedImg.user.name}
+        />
+      )}
     </div>
-  )
+  );
 }
 
 export default App
